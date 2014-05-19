@@ -135,16 +135,26 @@ def usage():
 
 if __name__ == '__main__':
     
-    ipLocation = reduce(lambda x, y: x + y, [ i if (val.find('.') > 0 and val.find('/')) > 0 else 0 for i, val in enumerate(sys.argv) ])  
+    ipLocation = 0
+    cidrIP = []
         
+    if not (sys.stdin.isatty()):
+        stdin_ip = sys.stdin.read().split('\n')
+    else: 
+        ipLocation = reduce(lambda x, y: x + y, [ i if (val.find('.') > 0 and val.find('/')) > 0 else 0 for i, val in enumerate(sys.argv) ])  
+    
     if ipLocation > 0:  
-        cidrIP = cidr(sys.argv[ipLocation])
+        cidrIP[0] = cidr(sys.argv[ipLocation])
+    elif not (sys.stdin.isatty()):
+        for ip in stdin_ip:
+            cidrIP.append(cidr(ip))
     else:
         usage()
         sys.exit()
         
     if '-o' in sys.argv:
-        cidrIP.printList()
+        for cidrItem in cidrIP:
+            cidrItem.printList()
         sys.exit()
     else:
         cidrIP.toString() 
