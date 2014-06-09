@@ -157,7 +157,7 @@ if __name__ == '__main__':
             cidrItem.printList()
         sys.exit()
     else:
-		for ip in stdin_ip:
-				cidr(ip).toString()
+        for cidrItem in cidrIP:
+	    	cidrItem.toString()
            
      
