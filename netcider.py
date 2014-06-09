@@ -144,7 +144,7 @@ if __name__ == '__main__':
         ipLocation = reduce(lambda x, y: x + y, [ i if (val.find('.') > 0 and val.find('/')) > 0 else 0 for i, val in enumerate(sys.argv) ])  
     
     if ipLocation > 0:  
-        cidrIP[0] = cidr(sys.argv[ipLocation])
+        cidrIP.append(cidr(sys.argv[ipLocation]))
     elif not (sys.stdin.isatty()):
         for ip in stdin_ip:
             cidrIP.append(cidr(ip))
@@ -157,6 +157,7 @@ if __name__ == '__main__':
             cidrItem.printList()
         sys.exit()
     else:
-        cidrIP.toString() 
+		for ip in stdin_ip:
+				cidr(ip).toString()
            
      
