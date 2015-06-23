@@ -5,7 +5,7 @@ Calculates network segments based on CIDR notation. It's a pretty handy utility 
 =============================================================
 ==================== Net Cider v1.0 beta ====================
 ======================== Shawn Evans ========================
-================ Shawn.Evans@Knowledgecg.com ================
+===================== sevans@nopsec.com =====================
 =============================================================
 
 -o      Output full IP range to stdout
