@@ -118,7 +118,7 @@ class cidr():
 def usage():
     title = 'Net Cider v1.0 beta'
     author = 'Shawn Evans'
-    email = 'Shawn.Evans@Knowledgecg.com'
+    email = 'sevans@nopsec.com'
     print ''
     print '='*61
     print '='*((59-len(title))/2), title,'='*((59-len(title))/2)   
