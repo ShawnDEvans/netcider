@@ -68,18 +68,18 @@ class cidr():
     def numhosts(self, wildcard):
         tmpWild = list(map(int, wildcard.split('.')))
         ranges = list(map(lambda e: len(range(0, e + 1)), tmpWild))
-        numhosts = reduce(operator.mul, ranges)-2
+        numhosts = reduce(operator.mul, ranges)
         return numhosts if numhosts > 0 else 1        
 
     def hostMin(self, address):
         temp = address.split('.')
-        temp[3] = str(int(temp[3])+1)
+        temp[3] = str(int(temp[3]))
         return self.listToString(temp)  
     
     def hostMax(self, address, wildcard):
         tmpAddr = address.split('.')
         tmpWild = wildcard.split('.')
-        tmpWild[3] = str(int(tmpWild[3])-1)
+        tmpWild[3] = str(int(tmpWild[3]))
         return self.listToString(list(map(sum, zip(list(map(int, tmpAddr)), list(map(int, tmpWild))))))
         
     def netmask(self, mask):
